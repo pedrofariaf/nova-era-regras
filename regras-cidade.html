@@ -7,7 +7,7 @@
   <title>Nova Era RP | Regulamento Oficial do Cidadão (Season 1)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-dark: #080407;
@@ -43,7 +43,9 @@
     body {
       background-color: var(--bg-dark);
       background-image: 
-        linear-gradient(180deg, rgba(8, 4, 7, 0.86) 0%, rgba(8, 4, 7, 0.96) 100%),
+        radial-gradient(at 10% 10%, rgba(255, 0, 60, 0.25) 0px, transparent 50%),
+        radial-gradient(at 90% 90%, rgba(180, 0, 40, 0.22) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(10, 5, 7, 0.95) 0px, transparent 100%),
         url('assets/nova_era_banner_promocional.jpg');
       background-attachment: fixed;
       background-size: cover;
@@ -53,23 +55,6 @@
       font-family: var(--font-sans);
       line-height: 1.6;
       min-height: 100vh;
-    }
-
-    .hero-banner-card {
-      max-width: 900px;
-      margin: 0 auto 1.8rem auto;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 0, 60, 0.35);
-      box-shadow: 0 10px 40px rgba(255, 0, 60, 0.25), 0 0 25px rgba(0, 0, 0, 0.8);
-    }
-
-    .hero-img-banner {
-      width: 100%;
-      height: auto;
-      max-height: 240px;
-      object-fit: cover;
-      display: block;
     }
 
     /* Menu de Navegação */
@@ -435,6 +420,7 @@
       .card { padding: 1.4rem; }
       .nav-container { flex-direction: column; gap: 12px; }
       .nav-links { flex-wrap: wrap; justify-content: center; }
+      .banner-logo-text { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -459,10 +445,6 @@
   <!-- Hero Header -->
   <header class="hero">
     <div class="hero-container">
-      <!-- Server Hero Banner Image -->
-      <div class="hero-banner-card">
-        <img src="assets/hero-banner.png" alt="Nova Era Season 1" class="hero-img-banner">
-      </div>
       <span class="server-badge">🔴 NOVA ERA RP • SEASON 1</span>
       <h1>Regulamento Geral do Cidadão</h1>
       <p>Manual oficial de normas de Roleplay, diretrizes criminais, regras corporativas e código penal da cidade Nova Era RP. Desenvolvido sob os padrões de excelência dos maiores servidores do país.</p>
