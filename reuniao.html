@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Painel Oficial de Reunião da Direção & Staff — Nova Era Roleplay Season 1. Organização de canais Discord, cargos, permissões in-game, funções e protocolos.">
+  <title>Nova Era RP | Painel da Direção & Reunião de Staff</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #080407;
+      --bg-card: rgba(20, 10, 14, 0.92);
+      --bg-card-border: rgba(255, 0, 60, 0.25);
+      --text-main: #fcfcfc;
+      --text-muted: #a3a3a3;
+      --accent-red: #ff003c;
+      --accent-red-glow: rgba(255, 0, 60, 0.4);
+      --accent-red-dark: #990024;
+      --accent-gold: #ffaa00;
+      --accent-green: #22c55e;
+      --accent-blue: #ff3366;
+      --code-bg: #0d0608;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-code: 'Fira Code', monospace;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.85);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        linear-gradient(180deg, rgba(8, 4, 7, 0.88) 0%, rgba(8, 4, 7, 0.96) 100%),
+        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=80'),
+        url('assets/nova_era_banner_promocional.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    .nav-menu {
+      background: rgba(12, 6, 9, 0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--bg-card-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.9rem 1.5rem;
+    }
+
+    .nav-container {
+      max-width: 1250px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #ffffff 30%, #ff003c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-badge {
+      background: rgba(255, 0, 60, 0.2);
+      border: 1px solid rgba(255, 0, 60, 0.4);
+      color: #ff4d79;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-left: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .nav-item {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .nav-item:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-item.active {
+      color: #fff;
+      background: rgba(255, 0, 60, 0.25);
+      border-color: rgba(255, 0, 60, 0.5);
+      box-shadow: 0 0 20px rgba(255, 0, 60, 0.3);
+    }
+
+    /* Hero Header */
+    .hero {
+      padding: 3rem 1.5rem 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .server-badge {
+      display: inline-block;
+      background: rgba(255, 0, 60, 0.15);
+      color: #ff3366;
+      border: 1px solid rgba(255, 0, 60, 0.4);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      box-shadow: 0 0 15px rgba(255, 0, 60, 0.2);
+    }
+
+    .hero h1 {
+      font-size: 2.7rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 30%, #ff003c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+    }
+
+    /* Category Nav */
+    .category-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .cat-btn {
+      background: rgba(20, 10, 14, 0.85);
+      border: 1px solid var(--bg-card-border);
+      color: var(--text-muted);
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .cat-btn:hover {
+      color: #fff;
+      border-color: #ff003c;
+      background: rgba(255, 0, 60, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255, 0, 60, 0.3);
+    }
+
+    /* Container */
+    .main-container {
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .header-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .header-icon {
+      font-size: 1.8rem;
+      background: rgba(255, 0, 60, 0.15);
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 0, 60, 0.35);
+    }
+
+    .header-title h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .section-intro {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    /* Grid layout */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Info Box */
+    .info-box {
+      background: rgba(14, 7, 10, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .info-box:hover {
+      border-color: rgba(255, 0, 60, 0.35);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .info-box h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Table */
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .custom-table th {
+      background: rgba(18, 9, 12, 0.95);
+      color: #fff;
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--bg-card-border);
+    }
+
+    .custom-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.93rem;
+      color: var(--text-muted);
+    }
+
+    .role-badge {
+      font-family: var(--font-code);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .role-resp { background: rgba(255, 0, 60, 0.2); color: #ff4d79; border: 1px solid rgba(255, 0, 60, 0.4); }
+    .role-admin { background: rgba(56, 189, 248, 0.18); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); }
+    .role-aux { background: rgba(234, 179, 8, 0.18); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.4); }
+    .role-lider { background: rgba(168, 85, 247, 0.18); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); }
+    .role-membro { background: rgba(34, 197, 94, 0.18); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.35); }
+
+    /* Checklist Section */
+    .checklist-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 1rem;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(14, 7, 10, 0.7);
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .check-item:hover {
+      border-color: rgba(255, 0, 60, 0.3);
+      background: rgba(22, 10, 15, 0.9);
+    }
+
+    .check-item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #ff003c;
+      cursor: pointer;
+      margin-top: 2px;
+    }
+
+    .check-content strong {
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .check-content p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    /* Category Accordion Discord List */
+    .cat-box {
+      background: rgba(14, 7, 10, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .cat-box h4 {
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ch-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .ch-tag {
+      font-family: var(--font-code);
+      font-size: 0.78rem;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      padding-bottom: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .card { padding: 1.4rem; }
+      .nav-container { flex-direction: column; gap: 12px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu de Navegação Privado da Staff -->
+  <nav class="nav-menu">
+    <div class="nav-container">
+      <span class="nav-logo">👑 NOVA ERA RP <span class="nav-badge">REUNIÃO STAFF</span></span>
+      <div class="nav-links">
+        <a href="#hierarquia" class="nav-item active">👑 Cargos & Permissões</a>
+        <a href="#mapeamento" class="nav-item">🌐 Discord (14 Setores)</a>
+        <a href="#funcoes" class="nav-item">💼 Funções Diárias</a>
+        <a href="#screenshare" class="nav-item">👻 Screenshare (SS)</a>
+        <a href="#tickets" class="nav-item">🎫 Gestão de Tickets</a>
+        <a href="#pauta" class="nav-item">✅ Pauta & Checklist</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero">
+    <div class="hero-container">
+      <span class="server-badge">🔒 PAINEL PRIVADO • DIREÇÃO & ALINHAMENTO</span>
+      <h1>Guia & Pauta de Reunião da Staff</h1>
+      <p>Manual interno para apresentação de diretrizes, alinhamento de equipa, permissões in-game FiveM (ADM 1/2/3), estrutura do Discord e revisão de processos de atendimento ao cidadão.</p>
+
+      <!-- Category Quick Links -->
+      <div class="category-nav">
+        <a href="#hierarquia" class="cat-btn">👑 1. Hierarquia & ADM</a>
+        <a href="#mapeamento" class="cat-btn">🌐 2. Canais do Discord</a>
+        <a href="#funcoes" class="cat-btn">💼 3. Funções & Conduta</a>
+        <a href="#screenshare" class="cat-btn">👻 4. Protocolo SS</a>
+        <a href="#tickets" class="cat-btn">🎫 5. Protocolo Tickets</a>
+        <a href="#pauta" class="cat-btn">✅ 6. Pauta da Reunião</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- 1. HIERARQUIA & PERMISSÕES FIVE M (ADM 1, 2, 3) -->
+    <section class="card" id="hierarquia">
+      <div class="card-header">
+        <div class="header-title">
+          <span class="header-icon">👑</span>
+          <h2>1. Hierarquia da Staff & Permissões In-Game (FiveM Admin)</h2>
+        </div>
+      </div>
+      <p class="section-intro">Definição clara dos níveis de autoridade no Discord e dos acessos aos comandos de administração in-game.</p>
+
+      <div class="grid-2">
+        <!-- Tabela Hierarquia Discord -->
+        <div class="info-box">
+          <h3>👑 Hierarquia dos Cargos no Discord</h3>
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>CARGO DISCORD</th>
+                <th>NÍVEL DE PERMISSÃO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="role-badge role-resp">1. Responsável Staff / Direção</span></td>
+                <td>Permissão Máxima & Decisão Final</td>
+              </tr>
+              <tr>
+                <td><span class="role-badge role-admin">2. Administrador</span></td>
+                <td>Gestão Geral de Sectores</td>
+              </tr>
+              <tr>
+                <td><span class="role-badge role-aux">3. Auxiliar de Administração</span></td>
+                <td>Supervisão de Denúncias & Recursos</td>
+              </tr>
+              <tr>
+                <td><span class="role-badge role-lider">4. Líder da Staff</span></td>
+                <td>Supervisão Direta de Equipa</td>
+              </tr>
+              <tr>
+                <td><span class="role-badge role-membro">5. Membro da Staff</span></td>
+                <td>Atendimento Diário de Tickets</td>
+              </tr>
+              <tr>
+                <td><span class="role-badge role-membro" style="opacity: 0.8;">6. Membro em Teste</span></td>
+                <td>Suporte Inicial (Sob Tutoria)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Tabela Permissões FiveM Admin -->
+        <div class="info-box">
+          <h3>⚡ Permissões In-Game (FiveM Admin Levels)</h3>
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>NÍVEL ADMIN</th>
+                <th>COMANDOS AUTORIZADOS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong style="color: #ff4d79;">ADM 1 (Fundador / Dev)</strong></td>
+                <td>Full Access, Developer Tools, Script Reload, Database Edit, Set-Admin.</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #38bdf8;">ADM 2 (Administradores)</strong></td>
+                <td>Ban, Unban, Kick, Teleport (TPM/TPT), Car Spawner, Clear Area, Give Item.</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #eab308;">ADM 3 (Moderadores / Suporte)</strong></td>
+                <td>Revive, Noclip, Spectate, Freeze, Car Repair, Announce.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. MAPEAMENTO COMPLETO DO DISCORD (14 CATEGORIAS) -->
+    <section class="card" id="mapeamento">
+      <div class="card-header">
+        <div class="header-title">
+          <span class="header-icon">🌐</span>
+          <h2>2. Mapeamento & Estrutura Oficial do Discord (14 Setores)</h2>
+        </div>
+      </div>
+      <p class="section-intro">Visualização organizada de todos os canais e setores configurados no Discord do Nova Era RP.</p>
+
+      <div class="grid-2">
+        <div class="cat-box">
+          <h4>🚪 --- AllowList</h4>
+          <div class="ch-list">
+            <span class="ch-tag">#bem-vindos</span><span class="ch-tag">#ip-cidade</span><span class="ch-tag">#allowlist</span><span class="ch-tag">#aprovado</span><span class="ch-tag">#reprovados</span><span class="ch-tag">#regras</span><span class="ch-tag">#chat-visitante</span><span class="ch-tag">#indicação</span><span class="ch-tag">#atualizações</span><span class="ch-tag">#convite-discord</span>
+          </div>
+        </div>
+
+        <div class="cat-box">
+          <h4>💬 --- Social</h4>
+          <div class="ch-list">
+            <span class="ch-tag">#chat-geral</span><span class="ch-tag">#marcações</span><span class="ch-tag">#comunicados</span><span class="ch-tag">#report-bug</span><span class="ch-tag">#spoilers</span><span class="ch-tag">#live-on</span><span class="ch-tag">#redes-sociais</span><span class="ch-tag">#clips</span><span class="ch-tag">#sugestões</span><span class="ch-tag">#chat-anônimo</span>
+          </div>
+        </div>
+
+        <div class="cat-box">
+          <h4>💰 --- Vendas</h4>
+          <div class="ch-list">
+            <span class="ch-tag">#link-loja</span><span class="ch-tag">#votações</span><span class="ch-tag">#chat-vendas</span><span class="ch-tag">#novidades</span><span class="ch-tag">#boost</span><span class="ch-tag">🔊 Suporte Vendas</span><span class="ch-tag">🔊 Equipe Vendas</span><span class="ch-tag">🔊 Atendimento 1-3</span>
+          </div>
+        </div>
+
+        <div class="cat-box">
+          <h4>🎨 --- Marketing</h4>
+          <div class="ch-list">
+            <span class="ch-tag">#chat-streamers</span><span class="ch-tag">#chat-influencers</span><span class="ch-tag">#chat-marketing</span><span class="ch-tag">#solicitar-design</span><span class="ch-tag">#seja-jornalista</span><span class="ch-tag">#notícias</span><span class="ch-tag">🔊 Suporte Mkt</span>
+          </div>
+        </div>
+
+        <div class="cat-box">
+          <h4>⏰ --- Bater Ponto</h4>
+          <div class="ch-list">
+            <span class="ch-tag">#bater-ponto</span><span class="ch-tag">#logs-bateponto</span>
+          </div>
+        </div>
+
+        <div class="cat-box">
+          <h4>👑 --- Administração</h4>
+          <div class="ch-list">
+            <span class="ch-tag">#hierarquia</span><span class="ch-tag">#funções-pastas</span><span class="ch-tag">#staff-advertência</span><span class="ch-tag">#controle-staff</span><span class="ch-tag">#removidos-staff</span><span class="ch-tag">#blacklist-perma</span><span class="ch-tag">#comandos-staff</span>
+          </div>
+        </div>
+
+        <div class="cat-box">
+          <h4>⭐ --- Staff</h4>
+          <div class="ch-list">
+            <span class="ch-tag">#comandos</span><span class="ch-tag">#solicitações</span><span class="ch-tag">#advertência</span><span class="ch-tag">#banimentos</span><span class="ch-tag">#ausência-staff</span><span class="ch-tag">#chat-staff</span><span class="ch-tag">🔊 Reunião Staff</span>
+          </div>
+        </div>
+
+        <div class="cat-box">
+          <h4>⚒️ --- Suporte</h4>
+          <div class="ch-list">
+            <span class="ch-tag">#chat-discord</span><span class="ch-tag">#abrir-ticket</span><span class="ch-tag">#feedback-staff</span><span class="ch-tag">🔊 Atendimento 01 a 09</span>
+          </div>
+        </div>
+
+        <div class="cat-box">
+          <h4>🦅 --- Chamados & ☠️ Ilegal</h4>
+          <div class="ch-list">
+            <span class="ch-tag">#chat-chamados</span><span class="ch-tag">#chat-ilegal</span><span class="ch-tag">#solicitar-kits</span><span class="ch-tag">#anuncio-rec-ilegal</span><span class="ch-tag">#fac’s-livres</span>
+          </div>
+        </div>
+
+        <div class="cat-box">
+          <h4>🚓 --- Corporações Públicas</h4>
+          <div class="ch-list">
+            <span class="ch-tag">#codigo-penal</span><span class="ch-tag">#comunicados-policia</span><span class="ch-tag">#candidatura-policia</span><span class="ch-tag">#chat-geral-médicos</span><span class="ch-tag">#chat-geral-mecanicos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FUNÇÕES DIÁRIAS & CONDUTA DA STAFF -->
+    <section class="card" id="funcoes">
+      <div class="card-header">
+        <div class="header-title">
+          <span class="header-icon">💼</span>
+          <h2>3. Funções Diárias & Código de Conduta da Staff</h2>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="info-box">
+          <h3>⚖️ Imparcialidade Absoluta</h3>
+          <p style="color: var(--text-muted); font-size: 0.93rem;">Membros da staff não têm lados. É proibido favorecer amigos, facções ou corporações nas análises de denúncias ou tickets. O regulamento aplica-se a todos por igual.</p>
+        </div>
+
+        <div class="info-box">
+          <h3>⏰ Obrigatoriedade do Bater Ponto</h3>
+          <p style="color: var(--text-muted); font-size: 0.93rem;">Em cada turno de serviço in-game ou no suporte do Discord, o membro da staff é obrigado a utilizar o comando `#bater-ponto` para registar o tempo ativo.</p>
+        </div>
+
+        <div class="info-box">
+          <h3>🚫 Proibição de Abuso de Power Admin</h3>
+          <p style="color: var(--text-muted); font-size: 0.93rem;">Proibido usar comandos administrativos (Noclip, Spectate, Revive ou Spawner) para benefício próprio no RP ou durante ações ativas de facção.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PROTOCOLO OFICIAL DE SCREENSHARE (SS) -->
+    <section class="card" id="screenshare">
+      <div class="card-header">
+        <div class="header-title">
+          <span class="header-icon">👻</span>
+          <h2>4. Protocolo Oficial de Screenshare (SS Anti-Cheat)</h2>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <h3>🔍 Passos para Realizar Screenshare (Verificação de Xit/Mod Menu):</h3>
+        <ol style="padding-left: 1.5rem; color: var(--text-muted); line-height: 1.8; margin-top: 10px;">
+          <li><strong>Puxar para a Sala:</strong> Mover o suspeito para a sala de voz <code>🔊 Screenshare</code> e solicitar a partilha de ecrã integral (Tela Cheia).</li>
+          <li><strong>Consentimento:</strong> Informar o utilizador que a verificação é voluntária. Se recusar partilhar o ecrã ou desconectar durante a abordagem, aplica-se o banimento por <em>Recusa de Screenshare (30 dias)</em>.</li>
+          <li><strong>Ferramentas de Análise:</strong> Inspecionar tarefas ativas (Task Manager), pasta do FiveM (Application Data / Plugins / Mods), histórico do navegador e ficheiros recém-descarregados.</li>
+          <li><strong>Registo Obrigatório:</strong> Preencher a ficha no canal <code>#registro-screenshare</code> com o resultado (Limpo ou Banido).</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. GESTÃO DE TICKETS & ATENDIMENTO -->
+    <section class="card" id="tickets">
+      <div class="card-header">
+        <div class="header-title">
+          <span class="header-icon">🎫</span>
+          <h2>5. Protocolos de Gestão de Tickets & Suporte</h2>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="info-box">
+          <h3>📥 Padrão de Atendimento em Tickets</h3>
+          <ul style="padding-left: 1.2rem; color: var(--text-muted); line-height: 1.7;">
+            <li>Cumprimentar o jogador com educação profissional.</li>
+            <li>Exigir prova em vídeo sem edições (mínimo de 2 a 5 minutos) com áudio in-game.</li>
+            <li>Não aceitar prints de ecrã isoladas para denúncias de RDM/VDM.</li>
+            <li>Registar a punição nos canais <code>#banimentos</code> ou <code>#advertência</code> antes de fechar o ticket.</li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <h3>⏱️ SLA & Tempo Recomendado de Resposta</h3>
+          <ul style="padding-left: 1.2rem; color: var(--text-muted); line-height: 1.7;">
+            <li><strong>Tickets de Suporte Geral:</strong> Resposta máxima em 15 minutos.</li>
+            <li><strong>Tickets de Doações/VIP:</strong> Prioridade imediata com a Direção.</li>
+            <li><strong>Denúncias Complexas:</strong> Análise em até 24 horas com equipa de suporte.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PAUTA E CHECKLIST INTERATIVO DA REUNIÃO -->
+    <section class="card" id="pauta">
+      <div class="card-header">
+        <div class="header-title">
+          <span class="header-icon">✅</span>
+          <h2>6. Pauta da Reunião — Checklist da Direção (Ao Vivo)</h2>
+        </div>
+      </div>
+      <p class="section-intro">Clica nas caixas de seleção durante a reunião para assinalar os tópicos apresentados à equipa.</p>
+
+      <div class="checklist-group">
+        <label class="check-item">
+          <input type="checkbox" onchange="saveCheck(this, 1)">
+          <div class="check-content">
+            <strong>1. Apresentação da Estrutura da Season 1</strong>
+            <p>Boas-vindas à equipa, revisão do regulamento do cidadão e metas de crescimento do servidor.</p>
+          </div>
+        </label>
+
+        <label class="check-item">
+          <input type="checkbox" onchange="saveCheck(this, 2)">
+          <div class="check-content">
+            <strong>2. Alinhamento da Hierarquia Discord & Permissões FiveM (ADM 1, 2, 3)</strong>
+            <p>Esclarecimento das competências de cada cargo e proibição de abuso de comandos in-game.</p>
+          </div>
+        </label>
+
+        <label class="check-item">
+          <input type="checkbox" onchange="saveCheck(this, 3)">
+          <div class="check-content">
+            <strong>3. Cumprimento Obrigatório do Bater Ponto</strong>
+            <p>Reforço da obrigatoriedade do registo de horas no canal `#bater-ponto` para avaliação de promoção.</p>
+          </div>
+        </label>
+
+        <label class="check-item">
+          <input type="checkbox" onchange="saveCheck(this, 4)">
+          <div class="check-content">
+            <strong>4. Padrão de Atendimento em Tickets & Vídeos Obrigatórios</strong>
+            <p>Exigência de vídeo sem cortes para denúncias e postura imparcial sem favorecimento a conhecidos.</p>
+          </div>
+        </label>
+
+        <label class="check-item">
+          <input type="checkbox" onchange="saveCheck(this, 5)">
+          <div class="check-content">
+            <strong>5. Treino do Protocolo de Screenshare (SS)</strong>
+            <p>Revisão dos métodos de verificação anti-cheat e preenchimento de relatórios.</p>
+          </div>
+        </label>
+
+        <label class="check-item">
+          <input type="checkbox" onchange="saveCheck(this, 6)">
+          <div class="check-content">
+            <strong>6. Espaço para Perguntas & Esclarecimentos da Staff</strong>
+            <p>Abertura da palavra à equipa para dúvidas e sugestões finais.</p>
+          </div>
+        </label>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Nova Era Roleplay — Painel Privado da Direção & Reunião Staff. Season 1.</p>
+  </footer>
+
+  <script>
+    // Guardar o estado do checklist no localStorage do navegador durante a reunião
+    function saveCheck(el, index) {
+      localStorage.setItem('reuniao_check_' + index, el.checked);
+    }
+
+    // Carregar estado ao abrir a página
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.check-item input[type="checkbox"]').forEach((checkbox, index) => {
+        const saved = localStorage.getItem('reuniao_check_' + (index + 1));
+        if (saved === 'true') {
+          checkbox.checked = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
