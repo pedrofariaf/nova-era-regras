@@ -3,33 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Guia Oficial de Regras e Diretrizes do Servidor FiveM Nova Era Roleplay. Consulta RDM, VDM, Fear RP, Safe Zones, Assaltos e Tabela de Punições.">
-  <title>Nova Era RP | Regras Oficiais da Cidade</title>
+  <meta name="description" content="Regulamento Oficial do Cidadão e Código de Roleplay — Nova Era RP Season 1. Diretrizes completas de RP, ações criminais, corporações e código penal.">
+  <title>Nova Era RP | Regulamento Oficial do Cidadão (Season 1)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #07090e;
-      --bg-card: rgba(15, 20, 32, 0.85);
-      --bg-card-border: rgba(255, 255, 255, 0.12);
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --discord-purple: #5865F2;
-      --accent-gold: #faa61a;
-      --accent-red: #ed4245;
-      --accent-green: #57f287;
-      --accent-blue: #38bdf8;
+      --bg-dark: #080407;
+      --bg-card: rgba(20, 10, 14, 0.9);
+      --bg-card-border: rgba(255, 0, 60, 0.22);
+      --text-main: #fcfcfc;
+      --text-muted: #a3a3a3;
+      --accent-red: #ff003c;
+      --accent-red-glow: rgba(255, 0, 60, 0.4);
+      --accent-red-dark: #990024;
+      --accent-gold: #ffaa00;
+      --accent-green: #22c55e;
+      --accent-blue: #ff3366;
+      --discord-purple: #ff003c;
       --badge-adv: #eab308;
       --badge-timeout: #f97316;
       --badge-ban: #ef4444;
       --badge-perm: #991b1b;
-      --code-bg: #020617;
+      --code-bg: #0d0608;
       --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       --font-code: 'Fira Code', monospace;
       --radius-lg: 16px;
       --radius-md: 10px;
-      --shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.7);
+      --shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.85);
     }
 
     * {
@@ -41,8 +43,13 @@
     body {
       background-color: var(--bg-dark);
       background-image: 
-        radial-gradient(at 0% 0%, rgba(88, 101, 242, 0.18) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(237, 66, 69, 0.15) 0px, transparent 50%);
+        linear-gradient(180deg, rgba(8, 4, 7, 0.85) 0%, rgba(8, 4, 7, 0.96) 100%),
+        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=80'),
+        url('assets/nova_era_banner_promocional.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
       color: var(--text-main);
       font-family: var(--font-sans);
       line-height: 1.6;
@@ -51,7 +58,7 @@
 
     /* Menu de Navegação */
     .nav-menu {
-      background: rgba(11, 15, 25, 0.92);
+      background: rgba(12, 6, 9, 0.95);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--bg-card-border);
       position: sticky;
@@ -61,7 +68,7 @@
     }
 
     .nav-container {
-      max-width: 1150px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -70,9 +77,9 @@
 
     .nav-logo {
       font-weight: 800;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       letter-spacing: 0.5px;
-      background: linear-gradient(135deg, var(--discord-purple), var(--accent-blue));
+      background: linear-gradient(135deg, #ffffff 30%, #ff003c 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: flex;
@@ -103,266 +110,316 @@
 
     .nav-item.active {
       color: #fff;
-      background: rgba(88, 101, 242, 0.25);
-      border-color: rgba(88, 101, 242, 0.5);
-      box-shadow: 0 0 15px rgba(88, 101, 242, 0.2);
+      background: rgba(255, 0, 60, 0.25);
+      border-color: rgba(255, 0, 60, 0.5);
+      box-shadow: 0 0 20px rgba(255, 0, 60, 0.3);
     }
 
     /* Hero Header */
     .hero {
-      padding: 3rem 1.5rem 2rem 1.5rem;
+      padding: 3.5rem 1.5rem 2.5rem 1.5rem;
       text-align: center;
     }
 
     .hero-container {
-      max-width: 900px;
+      max-width: 980px;
       margin: 0 auto;
     }
 
     .server-badge {
       display: inline-block;
-      background: rgba(88, 101, 242, 0.2);
-      color: var(--accent-blue);
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      padding: 6px 16px;
+      background: rgba(255, 0, 60, 0.15);
+      color: #ff3366;
+      border: 1px solid rgba(255, 0, 60, 0.4);
+      padding: 6px 18px;
       border-radius: 20px;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: 1px;
       margin-bottom: 16px;
       text-transform: uppercase;
+      box-shadow: 0 0 15px rgba(255, 0, 60, 0.2);
     }
 
     .hero h1 {
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       font-weight: 800;
       letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+      background: linear-gradient(135deg, #ffffff 30%, #ff003c 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero p {
       color: var(--text-muted);
-      font-size: 1.1rem;
-      line-height: 1.6;
+      font-size: 1.15rem;
+      line-height: 1.7;
       margin-bottom: 2rem;
     }
 
-    /* Search Bar */
+    /* Quick Jump Categories Nav */
+    .category-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .cat-btn {
+      background: rgba(20, 10, 14, 0.85);
+      border: 1px solid var(--bg-card-border);
+      color: var(--text-muted);
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .cat-btn:hover {
+      color: #fff;
+      border-color: #ff003c;
+      background: rgba(255, 0, 60, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255, 0, 60, 0.3);
+    }
+
+    /* Search Box */
     .search-box {
-      max-width: 600px;
-      margin: 0 auto 1.5rem auto;
+      max-width: 650px;
+      margin: 0 auto 2.5rem auto;
       position: relative;
     }
 
     .search-input {
       width: 100%;
-      padding: 14px 20px 14px 48px;
-      background: rgba(15, 20, 32, 0.9);
+      padding: 16px 20px 16px 52px;
+      background: rgba(18, 9, 12, 0.95);
       border: 1px solid var(--bg-card-border);
-      border-radius: 12px;
+      border-radius: 14px;
       color: #fff;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-family: var(--font-sans);
       outline: none;
       transition: all 0.2s ease;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
     }
 
     .search-input:focus {
-      border-color: var(--discord-purple);
-      box-shadow: 0 0 20px rgba(88, 101, 242, 0.35);
+      border-color: #ff003c;
+      box-shadow: 0 0 25px rgba(255, 0, 60, 0.4);
     }
 
     .search-icon {
       position: absolute;
-      left: 16px;
+      left: 18px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: var(--text-muted);
     }
 
-    /* Main Container */
+    /* Main Content Container */
     .main-container {
-      max-width: 1150px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1.5rem 3rem 1.5rem;
+      padding: 0 1.5rem 4rem 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 2.5rem;
     }
 
-    /* Card */
+    /* Card Section */
     .card {
       background: var(--bg-card);
       backdrop-filter: blur(20px);
       border: 1px solid var(--bg-card-border);
       border-radius: var(--radius-lg);
-      padding: 2rem;
+      padding: 2.2rem;
       box-shadow: var(--shadow);
     }
 
     .card-header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.8rem;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .header-title {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .header-icon {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
+      background: rgba(255, 0, 60, 0.15);
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 0, 60, 0.35);
     }
 
     .header-title h2 {
-      font-size: 1.35rem;
+      font-size: 1.45rem;
       font-weight: 700;
       color: #fff;
     }
 
-    /* Punições Legend */
-    .penalty-legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .section-intro {
+      font-size: 1.02rem;
+      color: var(--text-muted);
       margin-bottom: 1.5rem;
+      line-height: 1.7;
     }
 
-    .badge {
-      display: inline-flex;
+    /* Rule Card Item */
+    .rule-block {
+      background: rgba(14, 7, 10, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      transition: all 0.2s ease;
+    }
+
+    .rule-block:hover {
+      border-color: rgba(255, 0, 60, 0.3);
+      background: rgba(22, 10, 15, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .rule-header-row {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .rule-title-text {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .rule-tag {
+      font-family: var(--font-code);
+      font-size: 0.8rem;
+      background: rgba(255, 0, 60, 0.18);
+      color: #ff4d79;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 0, 60, 0.35);
+    }
+
+    .badge-punish {
+      padding: 4px 10px;
       border-radius: 6px;
       font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
 
     .badge-adv { background: rgba(234, 179, 8, 0.18); color: var(--badge-adv); border: 1px solid rgba(234, 179, 8, 0.4); }
-    .badge-timeout { background: rgba(249, 115, 22, 0.18); color: var(--badge-timeout); border: 1px solid rgba(249, 115, 22, 0.4); }
-    .badge-ban { background: rgba(239, 68, 68, 0.18); color: var(--badge-ban); border: 1px solid rgba(239, 68, 68, 0.4); }
-    .badge-perm { background: rgba(153, 27, 27, 0.25); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.6); }
+    .badge-ban-temp { background: rgba(239, 68, 68, 0.18); color: var(--badge-ban); border: 1px solid rgba(239, 68, 68, 0.4); }
+    .badge-ban-perm { background: rgba(153, 27, 27, 0.3); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.6); }
 
-    /* Rules Table */
-    .table-responsive {
-      overflow-x: auto;
+    .rule-body-text {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 12px;
     }
 
-    .rules-table {
+    /* Examples Box (Do's & Don'ts) */
+    .examples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .example-box {
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .example-correct {
+      background: rgba(87, 242, 135, 0.08);
+      border: 1px solid rgba(87, 242, 135, 0.25);
+      color: #a7f3d0;
+    }
+
+    .example-incorrect {
+      background: rgba(237, 66, 69, 0.08);
+      border: 1px solid rgba(237, 66, 69, 0.25);
+      color: #fca5a5;
+    }
+
+    .example-title {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* Table Styles */
+    .cmd-table {
       width: 100%;
       border-collapse: collapse;
-      text-align: left;
-      font-size: 0.95rem;
+      margin-top: 1rem;
     }
 
-    .rules-table th {
-      background: rgba(11, 15, 25, 0.9);
-      color: var(--text-main);
+    .cmd-table th {
+      background: rgba(18, 9, 12, 0.9);
+      color: #fff;
       padding: 12px 16px;
-      font-weight: 700;
-      border-bottom: 1px solid var(--bg-card-border);
-      white-space: nowrap;
-    }
-
-    .rules-table td {
-      padding: 14px 16px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      color: var(--text-muted);
-      vertical-align: top;
-    }
-
-    .rules-table tr:hover td {
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .rule-name {
-      font-weight: 700;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .rule-code {
-      font-family: var(--font-code);
-      font-size: 0.8rem;
-      background: rgba(88, 101, 242, 0.2);
-      color: var(--accent-blue);
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-
-    /* Staff & Info Grid */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .info-box {
-      background: rgba(11, 15, 25, 0.7);
-      padding: 1.5rem;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .info-box h3 {
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-      color: #fff;
-    }
-
-    .staff-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .staff-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 12px;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 8px;
+      text-align: left;
       font-size: 0.9rem;
+      border-bottom: 1px solid var(--bg-card-border);
     }
 
-    .staff-role {
-      font-weight: 700;
-      color: var(--accent-blue);
+    .cmd-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.93rem;
+      color: var(--text-muted);
     }
 
-    .staff-power {
+    .cmd-code {
       font-family: var(--font-code);
-      font-size: 0.8rem;
-      color: var(--accent-green);
+      background: rgba(255, 0, 60, 0.15);
+      color: #ff4d79;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 0, 60, 0.25);
     }
 
     footer {
       text-align: center;
       color: var(--text-muted);
       font-size: 0.9rem;
-      padding-bottom: 2.5rem;
+      padding-bottom: 3rem;
     }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 1.9rem; }
-      .card { padding: 1.25rem; }
+      .hero h1 { font-size: 2rem; }
+      .card { padding: 1.4rem; }
       .nav-container { flex-direction: column; gap: 12px; }
       .nav-links { flex-wrap: wrap; justify-content: center; }
+      .banner-logo-text { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -371,12 +428,15 @@
   <!-- Menu de Navegação -->
   <nav class="nav-menu">
     <div class="nav-container">
-      <span class="nav-logo">⚡ NOVA ERA ROLEPLAY</span>
+      <span class="nav-logo">⚡ NOVA ERA ROLEPLAY • SEASON 1</span>
       <div class="nav-links">
-        <a href="index.html" class="nav-item active">📜 Regras Gerais</a>
-        <a href="modulo3.html" class="nav-item">📢 Módulo 3: Marketing</a>
-        <a href="modulo4.html" class="nav-item">📈 Módulo 4: Economia</a>
-        <a href="modulo5.html" class="nav-item">💰 Módulo 5: Monetização</a>
+        <a href="#diretrizes" class="nav-item active">📜 Normas Gerais</a>
+        <a href="#glossario" class="nav-item">🧠 Glossário RP</a>
+        <a href="#zonas" class="nav-item">🛑 Zonas</a>
+        <a href="#assaltos" class="nav-item">🔫 Crime & Assaltos</a>
+        <a href="#faccoes" class="nav-item">⚔️ Facções</a>
+        <a href="#corporacoes" class="nav-item">🚓 Polícia & INEM</a>
+        <a href="#codigo-penal" class="nav-item">⚖️ Código Penal</a>
       </div>
     </div>
   </nav>
@@ -384,231 +444,519 @@
   <!-- Hero Header -->
   <header class="hero">
     <div class="hero-container">
-      <span class="server-badge">🎮 GUIA OFICIAL DE REGRAS FIVEM</span>
-      <h1>Regras da Cidade — Nova Era RP</h1>
-      <p>Lê atentamente o código de conduta e diretrizes de Roleplay para garantir uma experiência imersiva, justa e sem Pay-To-Win.</p>
+      <span class="server-badge">🔴 NOVA ERA RP • SEASON 1</span>
+      <h1>Regulamento Geral do Cidadão</h1>
+      <p>Manual oficial de normas de Roleplay, diretrizes criminais, regras corporativas e código penal da cidade Nova Era RP. Desenvolvido sob os padrões de excelência dos maiores servidores do país.</p>
 
-      <!-- Search Box -->
+      <!-- Category Quick Links -->
+      <div class="category-nav">
+        <a href="#diretrizes" class="cat-btn">📜 1. Normas Gerais</a>
+        <a href="#glossario" class="cat-btn">🧠 2. Glossário RP</a>
+        <a href="#zonas" class="cat-btn">🛑 3. Safe & Red Zones</a>
+        <a href="#assaltos" class="cat-btn">🔫 4. Assaltos & Ações</a>
+        <a href="#faccoes" class="cat-btn">⚔️ 5. Facções & Guerras</a>
+        <a href="#corporacoes" class="cat-btn">🚓 6. Polícia & INEM</a>
+        <a href="#coma" class="cat-btn">🏥 7. Coma & NLR</a>
+        <a href="#comandos" class="cat-btn">💬 8. Comandos /me e /do</a>
+        <a href="#codigo-penal" class="cat-btn">⚖️ 9. Código Penal</a>
+      </div>
+
+      <!-- Live Search Bar -->
       <div class="search-box">
         <span class="search-icon">🔍</span>
-        <input type="text" id="ruleSearch" class="search-input" placeholder="Pesquisa regras (ex: RDM, VDM, Safe Zone, Assaltos, Policia)..." onkeyup="filterRules()">
+        <input type="text" id="citizenSearch" class="search-input" placeholder="Pesquisa por qualquer regra (ex: RDM, Fear RP, VDM, Refém, Banco, Pneus, Assalto)..." onkeyup="filterCitizenRules()">
       </div>
     </div>
   </header>
 
   <main class="main-container">
 
-    <!-- Legenda de Punições -->
-    <section class="card">
+    <!-- 1. NORMAS GERAIS DE CONVIVÊNCIA -->
+    <section class="card" id="diretrizes">
+      <div class="card-header">
+        <div class="header-title">
+          <span class="header-icon">📜</span>
+          <h2>1. Diretrizes Gerais & Padrões de RP High-Level</h2>
+        </div>
+      </div>
+      <p class="section-intro">O Nova Era RP preza pela imersão realista, respeito interpessoal e valorização da personagem. Todos os jogadores devem seguir os princípios universais de Roleplay de alta qualidade.</p>
+
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">G-01</span> Princípio do Fair Play & Imersão
+          </div>
+          <span class="badge-punish badge-adv">🟡 Advertência (ADV)</span>
+        </div>
+        <p class="rule-body-text">Roleplay é uma construção narrativa coletiva. O objetivo nunca deve ser "ganhar a ação a qualquer custo", mas sim proporcionar uma experiência enriquecedora e realista para todos os envolvidos. Atitudes antidesportivas, vaias em suporte ou provocações tóxicas são passíveis de punição.</p>
+      </div>
+
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">G-02</span> Proibição de Cheats, Hacks & Exploits
+          </div>
+          <span class="badge-punish badge-ban-perm">☠️ Banimento Permanente + HWID</span>
+        </div>
+        <p class="rule-body-text">É estritamente proibido o uso de qualquer programa de terceiros (Mod Menus, Crosshair externo, injectors, Tracers abusivos, scripts de macro ou bugs de dupes). O aproveitamento intencional de falhas do jogo/script sem comunicação à Staff é punido com banimento definitivo imediato.</p>
+      </div>
+
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">G-03</span> Transmissões & Regras para Streamers
+          </div>
+          <span class="badge-punish badge-ban-temp">🔴 Banimento 7 dias</span>
+        </div>
+        <p class="rule-body-text">Criadores de conteúdo e Streamers representam a imagem da cidade. É proibido incitar a comunidade ou os seus espetadores contra outros jogadores ou contra a equipa de Staff em live. Fazer Stream Sniping (usar a transmissão de outrem para encontrar localização ou intenções) é estritamente punido.</p>
+      </div>
+    </section>
+
+    <!-- 2. GLOSSÁRIO COMPLETO DE ROLEPLAY -->
+    <section class="card" id="glossario">
+      <div class="card-header">
+        <div class="header-title">
+          <span class="header-icon">🧠</span>
+          <h2>2. Glossário Completo de RP (Padrão Santa Group & Fluxo)</h2>
+        </div>
+      </div>
+      <p class="section-intro">Definições técnicas e obrigações de conduta para cada conceito de Roleplay.</p>
+
+      <!-- RDM -->
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">C-01</span> RDM — Random Deathmatch
+          </div>
+          <span class="badge-punish badge-ban-temp">🔴 Banimento 3 a 7 dias</span>
+        </div>
+        <p class="rule-body-text">Proibido agredir, disparar ou matar qualquer jogador sem um motivo de Roleplay plausível e previamente construído in-game. Toda a violência física ou armada **exige obrigatoriamente diálogo e comunicação verbal clara prévia**.</p>
+        <div class="examples-grid">
+          <div class="example-box example-correct">
+            <span class="example-title">✅ Exemplo Correto:</span>
+            Iniciar um diálogo verbal, dar voz de assalto e aguardar a reação da vítima antes de disparar.
+          </div>
+          <div class="example-box example-incorrect">
+            <span class="example-title">❌ Exemplo Incorreto:</span>
+            Avistar um cidadão parado na rua e disparar à cabeça à distância sem qualquer interação verbal.
+          </div>
+        </div>
+      </div>
+
+      <!-- VDM -->
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">C-02</span> VDM — Vehicle Deathmatch
+          </div>
+          <span class="badge-punish badge-ban-temp">🔴 Banimento 3 a 7 dias</span>
+        </div>
+        <p class="rule-body-text">Proibido utilizar qualquer veículo (carro, mota, camião, blindado ou helicóptero) como uma arma para atropelar intencionalmente pessoas ou colidir repetidamente contra outros carros para causar destruição sem motivo de RP.</p>
+        <div class="examples-grid">
+          <div class="example-box example-correct">
+            <span class="example-title">✅ Exemplo Correto:</span>
+            Usar o veículo em manobras de fuga tentando desviar dos peões e carros civis.
+          </div>
+          <div class="example-box example-incorrect">
+            <span class="example-title">❌ Exemplo Incorreto:</span>
+            Subir o passeio com uma carrinha a alta velocidade para abalroar vários peões que conversam.
+          </div>
+        </div>
+      </div>
+
+      <!-- FEAR RP -->
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">C-03</span> Fear RP — Amor à Vida (Valorização da Vida)
+          </div>
+          <span class="badge-punish badge-adv">🟡 Advertência (ADV1) + Prisão</span>
+        </div>
+        <p class="rule-body-text">O teu personagem deve agir com o medo natural que qualquer ser humano sente perante a morte ou grave lesão corporal. Se estás em desvantagem numérica ou tens uma arma apontada a ti (ex: 1 vs 2+), deves render-te e seguir as ordens do agressor.</p>
+        <div class="examples-grid">
+          <div class="example-box example-correct">
+            <span class="example-title">✅ Exemplo Correto:</span>
+            Levantar as mãos e entregar os pertences quando surpreendido por 2 assaltantes armados num beco.
+          </div>
+          <div class="example-box example-incorrect">
+            <span class="example-title">❌ Exemplo Incorreto:</span>
+            Puxar uma arma e tentar responder ao tiro quando já tens duas pistolas apontadas à cabeça.
+          </div>
+        </div>
+      </div>
+
+      <!-- COMBAT LOGGING & COMBAT STORING -->
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">C-04</span> Combat Logging (CL) & Combat Storing
+          </div>
+          <span class="badge-punish badge-ban-temp">🔴 Banimento 5 a 10 dias</span>
+        </div>
+        <p class="rule-body-text">
+          - <strong>Combat Logging:</strong> Desconectar do jogo (Crash intencional, Alt+F4 ou fechar o FiveM) durante uma ação ativa (perseguição policial, assalto, tiroteio, fita policial ou estado de coma).<br>
+          - <strong>Combat Storing:</strong> Guardar o veículo na garagem, esconder armas no inventário da casa/porta-bagagens ou guardar itens valiosos em meio de uma perseguição ativa para evitar a apreensão.
+        </p>
+      </div>
+
+      <!-- COMBAT MEDICAL & COP BAITING -->
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">C-05</span> Combat Medical & Cop Baiting
+          </div>
+          <span class="badge-punish badge-adv">🟡 ADV1 / Ban 3d</span>
+        </div>
+        <p class="rule-body-text">
+          - <strong>Combat Medical:</strong> Curar-se (usar medkits/bandagens) ou reanimar um colega enquanto estás debaixo de fogo ativo e sem cobertura segura.<br>
+          - <strong>Cop Baiting:</strong> Provocar a polícia intencionalmente (fazer piões à porta da esquadra, passar a 200km/h à frente do patrulha sem motivo) apenas para forçar uma perseguição sem enredo prévio.
+        </p>
+      </div>
+
+      <!-- METAGAMING & POWERGAMING -->
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">C-06</span> Metagaming (MG) & Powergaming (PG)
+          </div>
+          <span class="badge-punish badge-ban-temp">🔴 Banimento 7 dias</span>
+        </div>
+        <p class="rule-body-text">
+          - <strong>Metagaming:</strong> Usar informações obtidas fora do RP (Discord, livestreams, IDs flutuantes na cabeça, Twitch, YouTube) para obter vantagens in-game.<br>
+          - <strong>Powergaming:</strong> Realizar atos impossíveis na vida real (ex: capotar o carro a 200 km/h, voar por uma ravina e continuar a conduzir como se nada tivesse acontecido, ou andar algemado a conduzir).
+        </p>
+      </div>
+
+      <!-- DARK RP -->
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">C-07</span> Dark RP & Discriminação
+          </div>
+          <span class="badge-punish badge-ban-perm">☠️ Banimento Permanente</span>
+        </div>
+        <p class="rule-body-text">Tolerância ZERO para qualquer tipo de RP de assédio sexual, violação, homofobia, racismo, xenofobia, nazismo, capacitismo ou discriminação religiosa. O incumprimento resulta em banimento definitivo imediato do servidor e Discord.</p>
+      </div>
+
+      <!-- RP DE ACIDENTE -->
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">C-08</span> RP de Acidente de Trânsito (Bateu-Levou)
+          </div>
+          <span class="badge-punish badge-adv">🟡 ADV1</span>
+        </div>
+        <p class="rule-body-text">Sempre que colidires com o veículo a alta velocidade contra um obstáculo, outro carro ou estrutura, é **obrigatório parar e interpretar a dor/lesão física** através dos comandos `/me` e `/do` (ex: `/me colide a cabeça contra o volante e fica tonto`). Ignorar acidentes graves é considerado Powergaming.</p>
+      </div>
+    </section>
+
+    <!-- 3. ZONAS DA CIDADE (SAFE ZONES & RED ZONES) -->
+    <section class="card" id="zonas">
+      <div class="card-header">
+        <div class="header-title">
+          <span class="header-icon">🛑</span>
+          <h2>3. Regras de Zonas (Safe Zones & Red Zones)</h2>
+        </div>
+      </div>
+      <p class="section-intro">Divisão de áreas protegidas por lei e locais de elevado risco criminal na cidade.</p>
+
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">Z-01</span> Safe Zones (Zonas Neutras Protegidas)
+          </div>
+          <span class="badge-punish badge-ban-temp">🔴 Banimento 3 dias</span>
+        </div>
+        <p class="rule-body-text">Locais onde é **estritamente proibido qualquer tipo de crime, roubo, agressão ou tiro**: </p>
+        <ul style="padding-left: 1.5rem; color: var(--text-muted); margin-top: 8px;">
+          <li>🏥 Hospital Central & Postos do INEM;</li>
+          <li>🚔 Esquadras da Polícia Nacional / GNR;</li>
+          <li>🏙️ Praça Central & Edifício da Prefeitura;</li>
+          <li>🏎️ Concessionária de Veículos;</li>
+          <li>🚜 Locais de Empregos Iniciais Legais (Lixo, Mineiro, Eletricista);</li>
+          <li>🛠️ Garagens Oficiais e Oficinas de Mecânicos.</li>
+        </ul>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: var(--accent-gold);">⚠️ <em>Fuga para Safe Zone: É proibido fugir para dentro de uma Safe Zone para escapar a um roubo ou perseguição já iniciada fora dela! Se o suspeito entrar na Safe Zone em fuga, a ação continua normalmente.</em></p>
+      </div>
+
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">Z-02</span> Red Zones (Zonas de Risco Criminal Extremo)
+          </div>
+          <span class="badge-punish badge-adv">🟡 Risco Total</span>
+        </div>
+        <p class="rule-body-text">Áreas delimitadas (Favelas, Laboratórios de Drogas, Ilha Cayo Perico, Locais de Desmanche) onde há probabilidade constante de confronto armado. Ao entrar numa Red Zone, o cidadão assume o risco de abordagens violentas e tiroteios iminentes.</p>
+      </div>
+    </section>
+
+    <!-- 4. REGULAMENTO DE AÇÕES CRIMINAIS & ASSALTOS -->
+    <section class="card" id="assaltos">
+      <div class="card-header">
+        <div class="header-title">
+          <span class="header-icon">🔫</span>
+          <h2>4. Ações Criminais, Assaltos & Regras de Fuga (Padrão Fluxo / Santa)</h2>
+        </div>
+      </div>
+      <p class="section-intro">Normas rígidas para equilibrar o confronto entre grupos criminosos e as forças policiais.</p>
+
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">A-01</span> Assaltos de Rua a Cidadãos
+          </div>
+          <span class="badge-punish badge-adv">🟡 ADV1 / Devolução dos Bens</span>
+        </div>
+        <p class="rule-body-text">
+          - <strong>Limite de Elementos:</strong> Máximo 4 assaltantes por abordagem de rua.<br>
+          - <strong>Proibição de Caixas ATM:</strong> Proibido obrigar a vítima a ir a caixas de multibanco ou bancos realizar levantamentos ou transferências. Apenas o dinheiro e itens que a vítima carrega no inventário físico podem ser roubados.<br>
+          - <strong>Itens Protegidos:</strong> Proibido roubar itens de empregos legais iniciais ou carros civis de iniciantes.
+        </p>
+      </div>
+
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">A-02</span> Assalto a Loja de Conveniência
+          </div>
+        </div>
+        <p class="rule-body-text">
+          - <strong>Requisito de Polícia:</strong> Mínimo 2 Polícias em serviço ativo.<br>
+          - <strong>Limite de Bandidos:</strong> Máximo 4 assaltantes no local.<br>
+          - <strong>Negociação & Fuga:</strong> Obrigatório negociar fuga de carro ou passagem livre caso haja refém.
+        </p>
+      </div>
+
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">A-03</span> Grandes Ações (Banco Central, Joalharia, Caixa Forte)
+          </div>
+          <span class="badge-punish badge-ban-temp">🔴 Banimento 5 dias</span>
+        </div>
+        <p class="rule-body-text">
+          - <strong>Aviso Obrigatório:</strong> Utilizar o comando `/ilegal` no arranque da ação para notificar a Polícia.<br>
+          - <strong>Reféns Verdadeiros:</strong> Proibido utilizar amigos, membros da facção ou "reféns falsos". Os reféns devem ser cidadãos reais capturados involuntariamente.<br>
+          - <strong>Teto de Resgate por Refém:</strong> Máximo de 50.000€ por cidadão civil; máximo de 100.000€ por agente da Polícia/INEM.<br>
+          - <strong>Regras de Fuga:</strong> Proibido usar atalhos irrealistas em montanhas sem veículos 4x4 off-road preparados. Proibido trocar de carro ou entrar em garagens durante os primeiros 5 minutos de perseguição direta.
+        </p>
+      </div>
+
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">A-04</span> Regra do Terceiro em Ação (Third Party)
+          </div>
+          <span class="badge-punish badge-ban-temp">🔴 Banimento 3 a 7 dias</span>
+        </div>
+        <p class="rule-body-text">Proibido qualquer indivíduo ou grupo alheio intervir numa troca de tiros, roubo a estabelecimento ou perseguição policial na qual não esteve envolvido desde o início da abordagem.</p>
+      </div>
+    </section>
+
+    <!-- 5. FACÇÕES, GANGUES E TERRITÓRIOS -->
+    <section class="card" id="faccoes">
+      <div class="card-header">
+        <div class="header-title">
+          <span class="header-icon">⚔️</span>
+          <h2>5. Regulamento de Facções, Gangues & Organizações</h2>
+        </div>
+      </div>
+
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">F-01</span> Identificação & Cores da Organização
+          </div>
+        </div>
+        <p class="rule-body-text">Todos os membros de uma facção oficial devem usar o vestuário ou as cores representativas da sua organização em ações criminais em grupo. É proibido usar trajes de outras facções para causar conflitos falsos (Fake RP).</p>
+      </div>
+
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">F-02</span> CK (Character Kill) & Traição
+          </div>
+          <span class="badge-punish badge-adv">🟡 Requer Aprov. Staff</span>
+        </div>
+        <p class="rule-body-text">A eliminação permanente de uma personagem (CK) de um membro por traição ou desrespeito grave à facção necessita de aprovação prévia de história junto da Administração no Discord.</p>
+      </div>
+    </section>
+
+    <!-- 6. CORPORAÇÕES PÚBLICAS (POLÍCIA & INEM) -->
+    <section class="card" id="corporacoes">
+      <div class="card-header">
+        <div class="header-title">
+          <span class="header-icon">🚓</span>
+          <h2>6. Protocolos da Polícia & Serviço Médico (INEM)</h2>
+        </div>
+      </div>
+
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">P-01</span> Polícia Nacional & Uso Progressivo da Força
+          </div>
+        </div>
+        <p class="rule-body-text">A polícia atua com a escala progressiva de força: **Verbalização ➔ Taser / Cassete ➔ Disparo Não Letal ➔ Força Letal**. Os agentes são obrigados a ler os Direitos de Miranda ao deter um suspeito: <em>"Tem o direito de permanecer em silêncio. Tudo o que disser pode e será usado contra si em tribunal..."</em></p>
+      </div>
+
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">H-01</span> Hospital Central & Inviolabilidade do INEM
+          </div>
+          <span class="badge-punish badge-ban-temp">🔴 Banimento 5 dias</span>
+        </div>
+        <p class="rule-body-text">Os médicos e enfermeiros do INEM prestam socorro neutro à população. É **estritamente proibido agredir, matar, sequestrar ou roubar paramédicos em serviço ativo**. Respeita o socorro médico!</p>
+      </div>
+    </section>
+
+    <!-- 7. COMA E NLR (NEW LIFE RULE) -->
+    <section class="card" id="coma">
+      <div class="card-header">
+        <div class="header-title">
+          <span class="header-icon">🏥</span>
+          <h2>7. Estado de Coma & Regra da Nova Vida (NLR)</h2>
+        </div>
+      </div>
+
+      <div class="rule-block searchable-item">
+        <div class="rule-header-row">
+          <div class="rule-title-text">
+            <span class="rule-tag">N-01</span> NLR — New Life Rule (Regra da Vida Nova)
+          </div>
+          <span class="badge-punish badge-adv">🟡 Reset de Ação + ADV</span>
+        </div>
+        <p class="rule-body-text">
+          Quando ficas inconsciente e és **reanimado no Hospital Central**:<br>
+          1. **Amnésia Obrigatória:** Esqueces obrigatoriamente todos os eventos dos últimos 20 minutos que levaram ao teu coma (quem te alvejou, o motivo e o local).<br>
+          2. **Proibição de Retorno:** Não podes retornar ao local da ação onde caíste durante as 2 horas seguintes ou até a ação ser finalizada.<br>
+          3. **Proibição de Vingança:** Proibido procurar os autores dos disparos para retaliação imediata com base em memórias anteriores ao coma.
+        </p>
+      </div>
+    </section>
+
+    <!-- 8. COMANDOS IN-GAME E REGULAMENTO DE CHAT -->
+    <section class="card" id="comandos">
+      <div class="card-header">
+        <div class="header-title">
+          <span class="header-icon">💬</span>
+          <h2>8. Utilização Prática dos Comandos /me e /do</h2>
+        </div>
+      </div>
+      <p class="section-intro">Guia para descrever ações físicas e factos que as animações do FiveM não representam visualmente.</p>
+
+      <table class="cmd-table">
+        <thead>
+          <tr>
+            <th>COMANDO</th>
+            <th>FUNÇÃO E REGRAS</th>
+            <th>EXEMPLO CORRETO IN-GAME</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="cmd-code">/me</span></td>
+            <td>Descreve ações físicas realizadas pela personagem em 1ª pessoa.</td>
+            <td><code>/me retira a carteira de pele do bolso interno do casaco e apresenta a licença</code></td>
+          </tr>
+          <tr>
+            <td><span class="cmd-code">/do</span></td>
+            <td>Descreve o ambiente, estado físico ou consulta factos in-game. <strong>É proibido mentir no /do!</strong></td>
+            <td><code>/do É possível observar vestígios de pólvora nas mãos do indivíduo?</code></td>
+          </tr>
+          <tr>
+            <td><span class="cmd-code">/chamarpolicia</span></td>
+            <td>Envia alerta à central policial com localização exata.</td>
+            <td><code>/chamarpolicia Dois indivíduos armados a tentar arrombar a joalharia</code></td>
+          </tr>
+          <tr>
+            <td><span class="cmd-code">/chamarinem</span></td>
+            <td>Envia pedido de socorro aos paramédicos de serviço.</td>
+            <td><code>/chamarinem Cidadão acidentado e inconsciente junto à autoestrada</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 9. CÓDIGO PENAL E INFRAÇÕES -->
+    <section class="card" id="codigo-penal">
       <div class="card-header">
         <div class="header-title">
           <span class="header-icon">⚖️</span>
-          <h2>Legenda de Punições Oficiais</h2>
+          <h2>9. Resumo do Código Penal & Infrações Civis</h2>
         </div>
       </div>
-      <div class="penalty-legend">
-        <span class="badge badge-adv">🟡 Advertência (ADV)</span>
-        <span class="badge badge-timeout">🟠 Timeout / Prisão (1h - 12h)</span>
-        <span class="badge badge-ban">🔴 Banimento Temporário (24h - 7d)</span>
-        <span class="badge badge-perm">☠️ Banimento Permanente</span>
-      </div>
+      <p class="section-intro">Tabela rápida de referência de infrações judiciais aplicadas pelas forças de segurança da cidade.</p>
+
+      <table class="cmd-table">
+        <thead>
+          <tr>
+            <th>INFRAÇÃO PENAL</th>
+            <th>CLASSIFICAÇÃO</th>
+            <th>MULTA FINANCEIRA</th>
+            <th>PENA DE PRISÃO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Excesso de Velocidade / Condução Perigosa</td>
+            <td>Leve</td>
+            <td>2.500€ — 5.000€</td>
+            <td>Sem prisão (Apreensão de veículo)</td>
+          </tr>
+          <tr>
+            <td>Porte de Arma Leve Sem Licença (Pistola)</td>
+            <td>Média</td>
+            <td>15.000€</td>
+            <td>15 Meses (Minutos)</td>
+          </tr>
+          <tr>
+            <td>Porte de Arma Pesada / Calibre de Guerra</td>
+            <td>Grave</td>
+            <td>45.000€</td>
+            <td>45 Meses (Minutos)</td>
+          </tr>
+          <tr>
+            <td>Assalto a Cidadão / Roubo de Veículo</td>
+            <td>Grave</td>
+            <td>25.000€</td>
+            <td>25 Meses (Minutos)</td>
+          </tr>
+          <tr>
+            <td>Tentativa de Homicídio contra Agente Público</td>
+            <td>Gravíssima</td>
+            <td>75.000€</td>
+            <td>75 Meses (Minutos)</td>
+          </tr>
+          <tr>
+            <td>Tráfico de Estupefacientes (Acima de 50g)</td>
+            <td>Gravíssima</td>
+            <td>60.000€</td>
+            <td>60 Meses (Minutos)</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
-
-    <!-- Tabela de Regras -->
-    <section class="card">
-      <div class="card-header">
-        <div class="header-title">
-          <span class="header-icon">📋</span>
-          <h2>Diretrizes & Regras Principais</h2>
-        </div>
-      </div>
-      
-      <div class="table-responsive">
-        <table class="rules-table" id="rulesTable">
-          <thead>
-            <tr>
-              <th>CÓD / REGRA</th>
-              <th>DESCRIÇÃO E DIRETRIZ</th>
-              <th>PUNIÇÃO PADRÃO</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="rule-name">
-                  <span class="rule-code">R-01</span> RDM (Random Deathmatch)
-                </div>
-              </td>
-              <td>Proibido matar, agredir ou disparar contra qualquer jogador sem um motivo prévio válido dentro do Roleplay. Todo ato agressivo exige diálogo ou justificativa in-game.</td>
-              <td><span class="badge badge-ban">🔴 Ban Temp (3d)</span></td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="rule-name">
-                  <span class="rule-code">R-02</span> VDM (Vehicle Deathmatch)
-                </div>
-              </td>
-              <td>Usar veículos como arma para atropelar, matar ou danificar intencionalmente outros jogadores sem motivo de RP extremo.</td>
-              <td><span class="badge badge-ban">🔴 Ban Temp (3d)</span></td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="rule-name">
-                  <span class="rule-code">R-03</span> Fear RP (Amor à Vida)
-                </div>
-              </td>
-              <td>Deves valorizar a vida da tua personagem acima de tudo. Se tiveres uma arma apontada à cabeça por 2 ou mais sujeitos, deves render-te e cooperar.</td>
-              <td><span class="badge badge-adv">🟡 ADV1 + Jail</span></td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="rule-name">
-                  <span class="rule-code">R-04</span> Combat Logging
-                </div>
-              </td>
-              <td>Desconectar do jogo durante uma ação ativa de RP (abordagem policial, assalto, sequestro ou tiroteio).</td>
-              <td><span class="badge badge-ban">🔴 Ban Temp (5d)</span></td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="rule-name">
-                  <span class="rule-code">R-05</span> Metagaming
-                </div>
-              </td>
-              <td>Usar informações obtidas fora do jogo (Discord, Lives da Twitch, TikTok) para obter vantagem in-game.</td>
-              <td><span class="badge badge-ban">🔴 Ban Temp (7d)</span></td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="rule-name">
-                  <span class="rule-code">R-06</span> Powergaming
-                </div>
-              </td>
-              <td>Fazer ações fisicamente impossíveis no mundo real (ex: capotar o carro a 200 km/h e continuar a conduzir normalmente sem interpretar ferimentos).</td>
-              <td><span class="badge badge-adv">🟡 ADV1</span></td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="rule-name">
-                  <span class="rule-code">R-07</span> Safe Zones
-                </div>
-              </td>
-              <td>Zonas protegidas onde é estritamente proibido qualquer tipo de crime, assalto ou violência (Hospital/INEM, Praça Central, Concessionária, Zonas de trabalho legal).</td>
-              <td><span class="badge badge-ban">🔴 Ban Temp (3d)</span></td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="rule-name">
-                  <span class="rule-code">R-08</span> Regras de Assaltos
-                </div>
-              </td>
-              <td>Máximo de 4 assaltantes por ação de rua. Proibido obrigar vítimas a retirar dinheiro do banco/caixa eletrónico. Resgate de sequestro limitado ao valor máximo estipulado no Discord.</td>
-              <td><span class="badge badge-adv">🟡 ADV1 / Dev</span></td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="rule-name">
-                  <span class="rule-code">R-09</span> Dark RP & Assédio
-                </div>
-              </td>
-              <td>Estritamente proibido RP de estupro, assédio moral/sexual, homofobia, racismo ou xenofobia. Tolerância zero.</td>
-              <td><span class="badge badge-perm">☠️ Ban Permanente</span></td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="rule-name">
-                  <span class="rule-code">R-10</span> Regra de Streamers
-                </div>
-              </td>
-              <td>Streamers oficiais devem cumprir a meta de 10h semanais. Doações de público recebidas em live podem ser recompensadas via Direção. Proibido conceder regalias P2W ou itens in-game grátis.</td>
-              <td><span class="badge badge-timeout">🟠 Perda da Tag</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- Staff & Admin Info Grid -->
-    <div class="grid-2">
-      <!-- Staff Hierarchy -->
-      <section class="card info-box">
-        <h3>👑 Hierarquia da Staff Discord</h3>
-        <div class="staff-list">
-          <div class="staff-item">
-            <span class="staff-role">1. Responsável Staff</span>
-            <span class="staff-power">Permissão Máxima</span>
-          </div>
-          <div class="staff-item">
-            <span class="staff-role">2. Administrador</span>
-            <span class="staff-power">Gestão Geral</span>
-          </div>
-          <div class="staff-item">
-            <span class="staff-role">3. Auxiliar da Administração</span>
-            <span class="staff-power">Apoio a Denúncias</span>
-          </div>
-          <div class="staff-item">
-            <span class="staff-role">4. Líder da Staff</span>
-            <span class="staff-power">Supervisão Equipa</span>
-          </div>
-          <div class="staff-item">
-            <span class="staff-role">5. Membro da Staff</span>
-            <span class="staff-power">Atendimento Tickets</span>
-          </div>
-          <div class="staff-item">
-            <span class="staff-role">6. Membro em Teste</span>
-            <span class="staff-power">Suporte Inicial</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- In-Game Admin Command Group -->
-      <section class="card info-box">
-        <h3>⚡ Permissões In-Game (FiveM Admin)</h3>
-        <div class="staff-list">
-          <div class="staff-item">
-            <span class="staff-role">ADM 1 (Fundador / Resp)</span>
-            <span class="staff-power">Full Access / Developer</span>
-          </div>
-          <div class="staff-item">
-            <span class="staff-role">ADM 2 (Administradores)</span>
-            <span class="staff-power">Ban, Kick, Teleport, Car</span>
-          </div>
-          <div class="staff-item">
-            <span class="staff-role">ADM 3 (Moderadores/Suporte)</span>
-            <span class="staff-power">Revive, Noclip, Spectate</span>
-          </div>
-        </div>
-      </section>
-    </div>
 
   </main>
 
   <footer>
-    <p>© 2026 Nova Era Roleplay — Todos os direitos reservados. Servidor Oficial FiveM.</p>
+    <p>© 2026 Nova Era Roleplay — Regulamento Oficial da Cidade. Servidor Oficial FiveM.</p>
   </footer>
 
   <script>
-    function filterRules() {
-      const input = document.getElementById('ruleSearch');
+    function filterCitizenRules() {
+      const input = document.getElementById('citizenSearch');
       const filter = input.value.toLowerCase();
-      const table = document.getElementById('rulesTable');
-      const tr = table.getElementsByTagName('tr');
+      const items = document.getElementsByClassName('searchable-item');
 
-      for (let i = 1; i < tr.length; i++) {
-        let textContent = tr[i].textContent || tr[i].innerText;
+      for (let i = 0; i < items.length; i++) {
+        let textContent = items[i].textContent || items[i].innerText;
         if (textContent.toLowerCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
+          items[i].style.display = "";
         } else {
-          tr[i].style.display = "none";
+          items[i].style.display = "none";
         }
       }
     }
